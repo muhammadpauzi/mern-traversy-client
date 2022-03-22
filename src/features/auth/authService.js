@@ -7,18 +7,20 @@ const register = async (userData) => {
         userData
     );
     // save user data response to localStorage
-    if (res.data) localStorage.setItem('user', JSON.stringify(res.data));
+    if (res?.data?.data)
+        localStorage.setItem('user', JSON.stringify(res.data.data));
     // and return it
-    return res.data;
+    return res.data.data;
 };
 
 const login = async (userData) => {
     // post user data
     const res = await axios.post('/auth/login', userData);
     // save user data response to localStorage
-    if (res.data) localStorage.setItem('user', JSON.stringify(res.data));
+    if (res?.data?.data)
+        localStorage.setItem('user', JSON.stringify(res.data.data));
     // and return it
-    return res.data;
+    return res.data.data;
 };
 
 const logout = () => {
